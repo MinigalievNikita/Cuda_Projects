@@ -21,7 +21,6 @@ __global__ void matrixkernel(double* c, const double* a, const double* b)
     for (int i = 0; i < gridDim.x; ++i) {
         sum = sum + a[offset + i] * b[x * gridDim.x + i];
     }
-    __syncthreads();
     c[x + offset] = sum;
 }
 
